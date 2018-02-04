@@ -1,0 +1,18 @@
+
+#appendix{
+    background-color: lightgray
+}
+
+.div-inline { 
+        height: 150px;
+        float: left;
+} 
+.firstcolumn {
+    width: 200px
+}
+.secondcolumn{
+    width:300px
+}
+
+
+
