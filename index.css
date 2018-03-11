@@ -2,20 +2,40 @@ body {
     margin-left: 50px;
     margin-right: 50px;
 }
-#appendix{
+
+
+#appendix {
+    margin-left: 10%;
     background-color: #f9f9f9
 }
 
-.firstcolumn{
+.firstcolumn {
     width: 100px
 }
 
-.secondcolumn{
+.secondcolumn {
     width: 250px
 }
-.thirdcolumn{
+
+.thirdcolumn {
     width: 350px
 }
 
+#left {
+    margin-left: 10%;
+    height: 700px;
+    float: left;
+}
 
+#right {
+    margin-left: 50%;
+    height: 700px;
+}
 
+#population_pyramid {
+    height: 50%;
+}
+
+#map {
+    height: 50%;
+}
