@@ -28,7 +28,7 @@ body {
 }
 
 #right {
-    margin-left: 50%;
+    margin-left: 64%;
     height: 700px;
 }
 
@@ -37,5 +37,6 @@ body {
 }
 
 #map {
+    margin-left: 20%;
     height: 50%;
 }
