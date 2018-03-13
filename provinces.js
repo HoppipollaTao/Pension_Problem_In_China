@@ -1,5 +1,5 @@
 var margin = {
-        top: 5,
+        top: 10,
         right: 40,
         bottom: 150,
         left: 100
