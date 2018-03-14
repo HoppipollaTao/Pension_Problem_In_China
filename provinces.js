@@ -19,19 +19,23 @@ var rowConverter = function (d, _, columns) {
 }
 
 //Load in data
-d3.csv("balance.csv", rowConverter, function (data) {
+d3.csv("balance_per_capita.csv", rowConverter, function (data) {
 
     var dataset = data;
+
     //create another data array, id is province name
     var provinces = data.columns.slice(1).map(function (id) {
+        console.log('id' + id );
         return {
             id: id,
             values: data.map(function (d) {
-                return {date: d.date, balance: d[id]};
+
+                    console.log('date ' + d.date + 'balance ' + d[id]);
+                    return {date: d.date, balance: d[id]};
+
             })
         };
     });
-
     //Scale Changes as we Zoom
     var zoom = d3.zoom()
         .scaleExtent([1, 40])
@@ -128,8 +132,9 @@ d3.csv("balance.csv", rowConverter, function (data) {
         .attr("width", w)
         .attr("height", h);
 
-
-    //Create line
+//************************************************************
+// Crete Line
+//************************************************************
     var provinces = svg.selectAll(".provinces")
         .data(provinces)
         .enter().append("g")
@@ -137,7 +142,7 @@ d3.csv("balance.csv", rowConverter, function (data) {
 
     var path = provinces.append("path")
         .attr("class", "line")
-        .attr("stroke-width", "2.5")
+        .attr("stroke-width", 2)
         .attr("fill", "none")
         .attr("clip-path", "url(#clip)")
         .attr("d", function (d) {
@@ -276,7 +281,7 @@ d3.csv("balance.csv", rowConverter, function (data) {
         .attr("x", 0 - (h / 2))
         .attr("dy", "1em")
         .style("text-anchor", "middle")
-        .text("Balance (10000 Yuan)");
+        .text("Balance (10,000 Yuan)");
 
     //add text label for x axis
     svg.append("text")
@@ -289,14 +294,14 @@ d3.csv("balance.csv", rowConverter, function (data) {
     // gridlines in x axis function
     function make_x_gridlines() {
         return d3.axisBottom(xScale)
-            .ticks(5)
+            .ticks(10)
 
     }
 
     // gridlines in y axis function
     function make_y_gridlines() {
         return d3.axisLeft(yScale)
-            .ticks(5)
+            .ticks(10)
     }
 
     // add the X gridlines
