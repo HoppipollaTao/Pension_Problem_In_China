@@ -1,0 +1,43 @@
+.bar.right {
+  fill: #FF69B4;
+}
+
+.bar.left{
+  fill: #5DA5DA;
+}
+
+
+.axislabel {
+  fill: #000;
+  font: 13px sans-serif;
+}
+
+ 
+/*tooltip and hover style*/ 
+.tooltip {position: absolute;line-height: 1.1em;padding: 7px; margin: 3px;
+    font: 12px sans-serif;
+    background: #fefefe;
+    color: black; 
+    pointer-events: none;
+    border-radius: 6px;
+}
+    
+.bar.right:hover {
+    fill: orange;
+}
+    
+.bar.left:hover {
+    fill: orange;
+}
+
+/*create button style*/
+
+button {
+  font-weight: bold;
+  background-color:grey;
+  border: none;
+  position:relative;
+}
+button:hover {
+  background: lightgrey;
+}
