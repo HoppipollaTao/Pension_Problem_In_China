@@ -69,34 +69,34 @@ d3.csv('population.csv', function(err, data) {
     )/0.05)*0.05;
 
  // define scale
-  xScale = d3.scaleLinear()
+  xScale2 = d3.scaleLinear()
     .domain([0, maxCount])
     .range([0, regionWidth])
     .nice();
 
-  yScale = d3.scaleBand()
+  yScale2 = d3.scaleBand()
     .domain(data.map(function(d) {
       return d.age;
     }))
     .rangeRound([h, 0], 0.1);
 
   var yAxisLeft = d3.axisRight()
-    .scale(yScale)
+    .scale(yScale2)
     .tickSize(4, 0)
     .tickPadding(margin2.middle - 4);
 
   var yAxisRight = d3.axisLeft()
-    .scale(yScale)
+    .scale(yScale2)
     .tickSize(4, 0)
     .tickFormat('')
 
   var xAxisRight = d3.axisBottom()
-    .scale(xScale)
+    .scale(xScale2)
     .tickFormat(d3.format(",.1%"))
     .ticks(5)
 
   var xAxisLeft = d3.axisBottom()
-    .scale(xScale.copy().range([pointA, 0]))
+    .scale(xScale2.copy().range([pointA, 0]))
     .tickFormat(d3.format(",.1%"))
     .ticks(5)
 
@@ -123,7 +123,7 @@ d3.csv('population.csv', function(err, data) {
     .call(xAxisLeft)
     .append('text')
         .attr('class', 'axislabel')
-        .attr('x', xScale(maxCount/2))
+        .attr('x', xScale2(maxCount/2))
         .attr('y', 35)
         .text('male, percent of total');
 
@@ -133,7 +133,7 @@ d3.csv('population.csv', function(err, data) {
     .call(xAxisRight)
     .append('text')
         .attr('class', 'axislabel')
-        .attr('x', xScale(maxCount/2))
+        .attr('x', xScale2(maxCount/2))
         .attr('y', 35)
         .text('female, percent of total');
 
@@ -144,7 +144,7 @@ d3.csv('population.csv', function(err, data) {
     .append('rect')
     .attr('class', 'bar left')
     .attr('y', function(d) {
-      return yScale(d.age);
+      return yScale2(d.age);
     })
     .attr("width", 0)
     .attr("opacity", 0)
@@ -152,9 +152,9 @@ d3.csv('population.csv', function(err, data) {
     sel1.transition()
         .duration(500)
         .attr('width', function(d) {
-          return xScale(percentage(d.male));
+          return xScale2(percentage(d.male));
         })
-        .attr('height', yScale.bandwidth())
+        .attr('height', yScale2.bandwidth())
         .attr("opacity", 1)
     
     sel1.on("mouseover", function(d) {
@@ -180,16 +180,16 @@ d3.csv('population.csv', function(err, data) {
     .attr('class', 'bar right')
     .attr('x', 0)
     .attr('y', function(d) {
-      return yScale(d.age);
+      return yScale2(d.age);
     })
-    .attr('height', yScale.bandwidth())
+    .attr('height', yScale2.bandwidth())
     .attr("width", 0)
   
     sel2.transition()
         .duration(1000)
         .delay(100)
         .attr('width', function(d) {
-          return xScale(percentage(d.female));
+          return xScale2(percentage(d.female));
         })
     
     sel2.on("mouseover", function(d) {
@@ -241,12 +241,12 @@ function updateData() {
         .duration(1500)
         .attr('x', 0)
         .attr('y', function(d) {
-          return yScale(d.age);
+          return yScale2(d.age);
         })
         .attr('width', function(d) {
-          return xScale(percentage(d.female));
+          return xScale2(percentage(d.female));
         })
-        .attr('height', yScale.bandwidth())
+        .attr('height', yScale2.bandwidth())
       
     // update male bar
     var sel4 = leftBarGroup.selectAll('.bar.left')
@@ -259,12 +259,12 @@ function updateData() {
         .duration(1500)
         .attr('x', 0)
         .attr('y', function(d) {
-          return yScale(d.age);
+          return yScale2(d.age);
         })
         .attr('width', function(d) {
-          return xScale(percentage(d.male));
+          return xScale2(percentage(d.male));
         })
-        .attr('height', yScale.bandwidth())
+        .attr('height', yScale2.bandwidth())
     
 }
 
