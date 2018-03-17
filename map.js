@@ -96,11 +96,9 @@ d3.json("china.geojson", function (error, root) {
                 .style("stroke","grey")
                 .style("opacity", 0.4);
 
-            if(d.properties.name != 'Guangdong' && d.properties.name != 'Tibet'
-                && d.properties.name != 'Beijing' && d.properties.name != 'Heilongjiang') {
-                d3.select("#province_name" + i)
-                    .style("opacity",0);
-            }
+            d3.select("#province_name" + i)
+                .style("opacity",0);
+
 
             d3.selectAll("." + d.properties.name)
                 .style("fill", "grey")
@@ -250,7 +248,7 @@ svg.select(".legendLinear")
 
 
 svg.append('text')
-    .text('Balance Per Capita')
+    .text('Pension Assets Per Capita')
     .attr("font-size", "18")
     .attr("font-weight", "bold")
     .attr("x", 0)
@@ -264,7 +262,7 @@ var margin = {
         top: 25,
         right: 40,
         bottom: 150,
-        left: 100
+        left: 190
     },
     w = 600 - margin.left - margin.right,
     h = 500 - margin.top - margin.bottom,
@@ -432,10 +430,10 @@ d3.csv("balance_per_capita.csv", rowConverter, function (data) {
                 .style("stroke","grey")
                 .style("opacity", 0.4);
 
-            if(d.id != 'Guangdong' && d.id != 'Tibet' && d.id != 'Beijing' && d.id != 'Heilongjiang') {
-                d3.select("#province_name" + i)
+
+            d3.select("#province_name" + i)
                     .style("opacity",0);
-            }
+
 
             d3.selectAll("." + d.id)
                 .style("fill", "grey")
@@ -476,13 +474,7 @@ d3.csv("balance_per_capita.csv", rowConverter, function (data) {
             }
         })
         .style("font", "10px sans-serif")
-        .style("opacity", function (d) {
-            if(d.id == 'Guangdong' || d.id == 'Tibet' || d.id == 'Beijing' || d.id == 'Heilongjiang') {
-                return 1;
-            } else {
-                return 0;
-            }
-        })
+        .style("opacity", 0)
         .text(function (d) {
             return d.id;
         });
@@ -553,19 +545,19 @@ d3.csv("balance_per_capita.csv", rowConverter, function (data) {
     //add text label for y axis
     svg.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", 0 - margin.left)
+        .attr("y", 0 - 80)
         .attr("x", 0 - (h / 2))
         .attr("dy", "1em")
         .style("text-anchor", "middle")
-        .text("Balance_Per_Capita (10,000 Yuan)");
+        .text("Pension Assets Per Capita (10,000 Yuan)");
 
-    //add text label for x axis
-    svg.append("text")
-        .attr("transform",
-            "translate(" + (w + 60) + " ," +
-            (h + 20) + ")")
-        .style("text-anchor", "end")
-        .text("Year");
+    // //add text label for x axis
+    // svg.append("text")
+    //     .attr("transform",
+    //         "translate(" + (w + 60) + " ," +
+    //         (h + 20) + ")")
+    //     .style("text-anchor", "end")
+    //     .text("Year");
 
     // gridlines in x axis function
     function make_x_gridlines() {
@@ -600,11 +592,5 @@ d3.csv("balance_per_capita.csv", rowConverter, function (data) {
         .style("opacity", 0.3);
 
 
-    svg.append('text')
-        .text('Balance Per Capita')
-        .attr("font-size", "18")
-        .attr("font-weight", "bold")
-        .attr("x", -55)
-        .attr("y", -10);
 
 });

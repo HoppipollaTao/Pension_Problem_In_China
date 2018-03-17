@@ -5,7 +5,7 @@ var margin2 = {
         left: 10,
         middle: 30
     },
-    w = 500 - margin2.left - margin2.right,
+    w = 400 - margin2.left - margin2.right,
     h = 400 - margin2.top - margin2.bottom,
     padding = 40;
 
