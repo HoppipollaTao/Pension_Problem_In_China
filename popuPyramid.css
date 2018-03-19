@@ -31,13 +31,26 @@
 }
 
 /*create button style*/
-
-button {
-  font-weight: bold;
-  background-color:grey;
+.pyButton{
+/*  font-weight: bold;*/
+  background-color:lightgrey;
   border: none;
-  position:relative;
+  position:absolute;
+  transform:translate(135px,295px);
 }
-button:hover {
-  background: lightgrey;
+
+.pyButton:hover {
+  background: grey;
+}
+
+.pyButton1 {
+/*  font-weight: bold;*/
+  background-color:lightgrey;
+  border: none;
+  position:absolute;
+  transform:translate(195px,295px);
+}
+
+.pyButton1:hover {
+  background: grey;
 }

@@ -9,11 +9,13 @@ var margin2 = {
     h = 400 - margin2.top - margin2.bottom,
     padding = 40;
 
-//// Create button
-d3.select("#population_pyramid").append("button")
+// Create button
+var pyButton1 = d3.select("#population_pyramid").append("button")
+    .attr("class", "pyButton")
     .attr("id", "change2018").text("2018");
 
-d3.select("#population_pyramid").append("button")
+var pyButton2 = d3.select("#population_pyramid").append("button")
+    .attr("class", "pyButton1")
     .attr("id", "change2050").text("2050");
 
 var svg2 = d3.select("#population_pyramid").append("svg")
@@ -25,7 +27,6 @@ var svg2 = d3.select("#population_pyramid").append("svg")
 var tooltipDiv = d3.select("#population_pyramid").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
-
 
 // define left ands right group
 var regionWidth = w / 2 - margin2.middle;

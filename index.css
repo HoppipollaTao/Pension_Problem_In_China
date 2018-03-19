@@ -40,9 +40,9 @@ body {
 
 .intro {
     position:fixed;left:10px;top:200px;
-    background-color: #7A7A7A;
+    background-color: lightgrey;
     border: none;
-    color: white;
+    color: BLACK;
     padding: 10px 25px;
     text-align: center;
     text-decoration: none;
