@@ -1,0 +1,23 @@
+.line {							
+  fill: none;
+  stroke: url(#line-gradient);
+  stroke-width: 2px;
+}
+
+.grid_pre line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid_pre path {
+  stroke-width: 0;
+}
+
+.axisRed line{
+  stroke: red;
+}
+
+.axisRed path{
+  stroke: red;
+}

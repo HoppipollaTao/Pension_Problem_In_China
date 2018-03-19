@@ -113,7 +113,7 @@ d3.json("china.geojson", function (error, root) {
     }
 //update color function
     function updateColor(d,i){
-            var balance_per_capita = getBalance_Capita(d.properties.name)/10000;
+            var balance_per_capita = getBalance_Capita(d.properties.name);
             console.log(d.properties.name + ' ' +balance_per_capita);
             return linear(balance_per_capita);
     }
@@ -259,14 +259,14 @@ svg.append('text')
 //*************************
 
 var margin = {
-        top: 25,
+        top: 70,
         right: 40,
         bottom: 150,
         left: 190
     },
-    w = 600 - margin.left - margin.right,
+    w = 650 - margin.left - margin.right,
     h = 500 - margin.top - margin.bottom,
-    padding = 40;
+    padding = 30;
 var xScale, yScale, xAxis, yAxis, line;  //Empty, for now
 
 
@@ -580,7 +580,7 @@ d3.csv("balance_per_capita.csv", rowConverter, function (data) {
             .tickSize(-h)
             .tickFormat("")
         )
-        .style("opacity", 0.3);
+        .style("opacity", 0.2);
 
     // add the Y gridlines
     svg.append("g")
@@ -589,7 +589,7 @@ d3.csv("balance_per_capita.csv", rowConverter, function (data) {
             .tickSize(-w)
             .tickFormat("")
         )
-        .style("opacity", 0.3);
+        .style("opacity", 0.2);
 
 
 
