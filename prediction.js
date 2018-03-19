@@ -57,9 +57,7 @@ d3.csv("prediction.csv", function (error, data) {
     x_pre.domain(d3.extent(data, function (d) {
         return d.date;
     }));
-    y_pre.domain([-2000, d3.max(data, function (d) {
-        return d.close;
-    })]);
+    y_pre.domain([-2000, 200]);
 
     // add the X gridlines
     svg_pre.append("g")
