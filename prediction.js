@@ -96,9 +96,9 @@ d3.csv("prediction.csv", function (error, data) {
         .selectAll("stop")
         .data([
             {offset: "0%", color: "red"},
-            {offset: "40%", color: "red"},
-            {offset: "40%", color: "orange"},
-            {offset: "62%", color: "orange"},
+            {offset: "0%", color: "red"},
+            {offset: "1%", color: "orange"},
+            {offset: "1%", color: "green"},
             {offset: "62%", color: "lawngreen"},
             {offset: "100%", color: "lawngreen"}
         ])
