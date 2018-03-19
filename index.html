@@ -22,7 +22,30 @@
 <div style="height: 800px">
     <div id = 'left' style = 'width:50%'>
         <div>
-            <!--<input type="button" value="Introduction" style="">-->
+            <input type="button" class="intro" value="Introduction" style="margin-left: 40px" onclick="btnAction()">
+            <!-- 弹出层-->
+            <div id="hid" align="center"
+                 style="position:fixed;left:10px;top:250px;border-radius: 6px;width:200px;height: 350px;background-color: #7A7A7A;display:none;line-height:25px;color:white;">
+                <!-- 弹出信息 -->
+                <span id="text" >The pension system in China is a part of social security system.
+                In China’s pension system, employee needs to contribute 8% of their salary to buy pension insurance,
+                    and the employer (usually is a company) will contribute 20%. If the employee has already contributed
+                    15 years or more, the employee is eligible to get the pension (will be paid every month) when he or
+                    she reached the retirement age.
+                </span>
+            </div>
+            <script>
+                function btnAction()
+                {
+                    document.getElementById("hid").style.display = "";//显示弹出层
+                    document.getElementById("text").innerHTML = mes;//设置信息内容
+                    setTimeout(function() {
+                        document.getElementById("hid").style.display = "none";//关闭弹出层
+                    }, 5);
+                }
+            </script>
+
+
         </div>
         <div id = 'map'>
             <script type="text/javascript" src="map.js"></script>
