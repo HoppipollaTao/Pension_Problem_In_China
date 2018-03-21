@@ -305,7 +305,8 @@ d3.csv("balance_per_capita.csv", rowConverter, function (data) {
     // Call the function d3.behavior.zoom to Add zoom
     function zoomed() {
         // create new scale ojects based on event
-        var new_yScale = d3.event.transform.rescaleY(yScale)
+        var new_xScale =  d3.event.transform.rescaleX(xScale);
+        var new_yScale = d3.event.transform.rescaleY(yScale);
         // update axes
         svg.select(".y.axis").call(yAxis.scale(new_yScale));
 
@@ -318,6 +319,15 @@ d3.csv("balance_per_capita.csv", rowConverter, function (data) {
             return line(d.values);
         })
 
+        svg.select("#y_grid").call(make_y_gridlines(new_yScale)
+            .tickSize(-w)
+            .tickFormat("")
+        );
+
+        // svg.select("#x_grid").call(make_x_gridlines(new_xScale)
+        //     .tickSize(-h)
+        //     .tickFormat("")
+        // );
         //zoom the dot
         dots.attr("cy", function(d) { return new_yScale(d.balance); });
 
@@ -560,23 +570,24 @@ d3.csv("balance_per_capita.csv", rowConverter, function (data) {
     //     .text("Year");
 
     // gridlines in x axis function
-    function make_x_gridlines() {
-        return d3.axisBottom(xScale)
+    function make_x_gridlines(x_scale) {
+        return d3.axisBottom(x_scale)
             .ticks(10)
 
     }
 
     // gridlines in y axis function
-    function make_y_gridlines() {
-        return d3.axisLeft(yScale)
+    function make_y_gridlines(y_scale) {
+        return d3.axisLeft(y_scale)
             .ticks(10)
     }
 
     // add the X gridlines
     svg.append("g")
         .attr("class", "grid")
+        .attr("id", "x_grid")
         .attr("transform", "translate(0," + h + ")")
-        .call(make_x_gridlines()
+        .call(make_x_gridlines(xScale)
             .tickSize(-h)
             .tickFormat("")
         )
@@ -585,7 +596,8 @@ d3.csv("balance_per_capita.csv", rowConverter, function (data) {
     // add the Y gridlines
     svg.append("g")
         .attr("class", "grid")
-        .call(make_y_gridlines()
+        .attr("id", "y_grid")
+        .call(make_y_gridlines(yScale)
             .tickSize(-w)
             .tickFormat("")
         )
