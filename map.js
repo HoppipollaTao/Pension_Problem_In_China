@@ -545,7 +545,7 @@ d3.csv("balance_per_capita.csv", rowConverter, function (data) {
     //add text label for y axis
     svg.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", 0 - 80)
+        .attr("y", 0 - 60)
         .attr("x", 0 - (h / 2))
         .attr("dy", "1em")
         .style("text-anchor", "middle")
